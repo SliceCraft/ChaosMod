@@ -1,7 +1,5 @@
 ﻿using ChaosMod.Activator;
-using ChaosMod.Patches;
 using ChaosMod.Utils;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace ChaosMod.Effects

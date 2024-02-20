@@ -20,16 +20,13 @@ namespace ChaosMod.Activator
             OneHitExplosions,
             AttractivePlayer,
             WarpSpeed,
-            DisableControls
+            DisableControls,
+            DropHelpfulItemEffect,
+            DropScrapEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
         {
-            System.Random rnd = new System.Random();
-            int nm = rnd.Next(3);
-            if (nm == 0) return new InfiniteSprintEffect();
-            else if(nm == 1) return new SpawnEnemyEffect();
-            else return new YIPPEEEEEffect();
             switch (effect)
             {
                 default: return null;
@@ -48,6 +45,8 @@ namespace ChaosMod.Activator
                 case Effects.AttractivePlayer: return new AttractivePlayerEffect();
                 case Effects.WarpSpeed: return new WarpSpeedEffect();
                 case Effects.DisableControls: return new DisableControlsEffect();
+                case Effects.DropHelpfulItemEffect: return new DropHelpfulItemEffect();
+                case Effects.DropScrapEffect: return new DropScrapEffect();
             }
         }
     }

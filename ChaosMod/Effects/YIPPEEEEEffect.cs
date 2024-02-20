@@ -1,5 +1,4 @@
 ﻿using ChaosMod.Activator;
-using ChaosMod.Patches;
 using ChaosMod.Utils;
 
 namespace ChaosMod.Effects
