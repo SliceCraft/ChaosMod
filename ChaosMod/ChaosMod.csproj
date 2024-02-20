@@ -89,10 +89,12 @@
     <Compile Include="Effects\InfiniteSprintEffect.cs" />
     <Compile Include="Effects\LockAllDoorsEffect.cs" />
     <Compile Include="Effects\OneHitExplosionsEffect.cs" />
+    <Compile Include="Effects\RandomOutfitEffect.cs" />
     <Compile Include="Effects\RandomTeleportEffect.cs" />
     <Compile Include="Effects\RemoveHolidingItemsEffect.cs" />
     <Compile Include="Effects\SpawnEnemyEffect.cs" />
     <Compile Include="Effects\AttractivePlayerEffect.cs" />
+    <Compile Include="Effects\SpinningEnemiesEffect.cs" />
     <Compile Include="Effects\UnlockUnlockableEffect.cs" />
     <Compile Include="Effects\WarpSpeedEffect.cs" />
     <Compile Include="Effects\YIPPEEEEEffect.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Activator\AllEffects.cs" />
     <Compile Include="Activator\TimerSystem.cs" />
     <Compile Include="Twitch\TwitchIRCClient.cs" />
+    <Compile Include="Utils\ReflectionUtil.cs" />
     <Compile Include="Utils\SpawnEnemyUtil.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static ChaosMod.Activator.AllEffects;
 
 namespace ChaosMod.Activator
 {
@@ -25,7 +26,14 @@ namespace ChaosMod.Activator
             List<Effect> removeEffects = new List<Effect>();
             foreach(Effect effect in activeEffects)
             {
-                effect.UpdateEffect();
+                try
+                {
+                    effect.UpdateEffect();
+                }
+                catch (Exception ex)
+                {
+                    ChaosMod.getInstance().logsource.LogError(ex);
+                }
                 if(effect.GetEffectLength() + effect.GetEffectStartTime() < DateTimeOffset.UtcNow.ToUnixTimeMilliseconds())
                 {
                     try
@@ -61,6 +69,7 @@ namespace ChaosMod.Activator
                 {
                     try
                     {
+                        chosenEffect.ResetEffectStartTime();
                         chosenEffect.StartEffect();
                     }
                     catch (Exception ex)
