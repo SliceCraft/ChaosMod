@@ -81,9 +81,9 @@ namespace ChaosMod.Activator.Activators
             if (ChaosMod.ConfigTwitchOptionsShowcase.Value == "chatmessage")
             {
                 string twitchChatMessage = "";
-                foreach (Effect effect in chosenEffects)
+                for(int i = 0; i < chosenEffects.Count; i++)
                 {
-                    twitchChatMessage += (!highNumbers ? chosenEffects.Count : (chosenEffects.Count + 3)) + ". " + effect.GetEffectName() + ". ";
+                    twitchChatMessage += (!highNumbers ? i + 1 : (i + 4)) + ". " + chosenEffects[i].GetEffectName() + ". ";
                 }
                 twitchChatMessage += "Vote by typing the number in chat";
                 ChaosMod.getInstance().twitchIRCClient.sendMessage(twitchChatMessage);
