@@ -1,5 +1,6 @@
 ﻿using ChaosMod.Activator;
 using ChaosMod.Patches;
+using ChaosMod.Utils;
 
 namespace ChaosMod.Effects
 {
@@ -31,7 +32,7 @@ namespace ChaosMod.Effects
                     yippeeeid = i;
                 }
             }
-            if (yippeeeid.HasValue) { RoundManagerPatch.spawnEnemyNextFrame(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, GameNetworkManager.Instance.localPlayerController.isInsideFactory, yippeeeid, 10); }
+            if (yippeeeid.HasValue) { SpawnEnemyUtil.SpawnEnemy(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, yippeeeid, 10, GameNetworkManager.Instance.localPlayerController.isInsideFactory); }
         }
     }
 }

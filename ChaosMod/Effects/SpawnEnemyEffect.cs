@@ -1,5 +1,6 @@
 ﻿using ChaosMod.Activator;
 using ChaosMod.Patches;
+using ChaosMod.Utils;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -38,8 +39,7 @@ namespace ChaosMod.Effects
                 blockSpawn = true;
                 return;
             }
-            // TODO: Use util
-            RoundManager.Instance.SpawnEnemyOnServer(TimerSystem.GetPositionTracker().GetOldPosition(ChaosMod.ConfigDelayBeforeSpawn.Value), 0, enemyNumber);
+            SpawnEnemyUtil.SpawnEnemy(TimerSystem.GetPositionTracker().GetOldPosition(ChaosMod.ConfigDelayBeforeSpawn.Value), enemyNumber, 1, GameNetworkManager.Instance.localPlayerController.isInsideFactory);
         }
 
         public override void StopEffect()
@@ -50,16 +50,6 @@ namespace ChaosMod.Effects
         public override bool IsAllowedToRun()
         {
             return GameNetworkManager.Instance.localPlayerController.isInsideFactory;
-        }
-
-        private async void SpawnEnemy()
-        {
-            ChaosMod.getInstance().logsource.LogInfo("Waiting for enemy spawn");
-            await Task.Delay(ChaosMod.ConfigDelayBeforeSpawn.Value * 1000);
-            ChaosMod.getInstance().logsource.LogInfo("Spawning enemy if not blocked");
-            if (blockSpawn) return;
-            RoundManagerPatch.spawnEnemyNextFrame(playerpos, isInside, null);
-            ChaosMod.getInstance().logsource.LogInfo("Spawning enemy next frame");
         }
     }
 }
