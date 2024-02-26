@@ -17,11 +17,6 @@ namespace ChaosMod.Effects
 
         public override void StartEffect()
         {
-            if (!GameNetworkManager.Instance.localPlayerController.isInsideFactory)
-            {
-                HUDManager.Instance.DisplayTip("You're lucky", "If it wasn't for the fact that you were outside you would've been fucked rn");
-                return;
-            }
             int? yippeeeid = null;
             for (int i = 0; i < RoundManager.Instance.currentLevel.Enemies.Count; i++)
             {
