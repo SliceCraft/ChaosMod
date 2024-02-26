@@ -89,6 +89,7 @@
     <Compile Include="Effects\InfiniteSprintEffect.cs" />
     <Compile Include="Effects\LockAllDoorsEffect.cs" />
     <Compile Include="Effects\OneHitExplosionsEffect.cs" />
+    <Compile Include="Effects\RandomEffectEffect.cs" />
     <Compile Include="Effects\RandomOutfitEffect.cs" />
     <Compile Include="Effects\RandomTeleportEffect.cs" />
     <Compile Include="Effects\RemoveHolidingItemsEffect.cs" />

@@ -25,6 +25,7 @@ namespace ChaosMod.Activator
             DropScrapEffect,
             //SpinningEnemiesEffect
             //RandomOutfitEffect
+            RandomEffectEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -51,6 +52,7 @@ namespace ChaosMod.Activator
                 case Effects.DropScrapEffect: return new DropScrapEffect();
                 //case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
                 //case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
+                case Effects.RandomEffectEffect: return new RandomEffectEffect();
             }
         }
     }

@@ -11,7 +11,7 @@ namespace ChaosMod.Activator
             ResetEffectStartTime();
         }
 
-        public void ResetEffectStartTime()
+        public virtual void ResetEffectStartTime()
         {
             effectStartTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         }
