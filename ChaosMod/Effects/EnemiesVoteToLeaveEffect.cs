@@ -26,7 +26,7 @@ namespace ChaosMod.Effects
 
         public override bool IsAllowedToRun()
         {
-            return TimeOfDay.Instance.currentDayTime >= 660;
+            return TimeOfDay.Instance.currentDayTime >= 540;
         }
     }
 }
