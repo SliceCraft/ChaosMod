@@ -26,7 +26,8 @@ namespace ChaosMod.Activator
             //SpinningEnemiesEffect
             //RandomOutfitEffect
             RandomEffectEffect,
-            TeleportToShipEffect
+            TeleportToShipEffect,
+            NoStaminaEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -55,6 +56,7 @@ namespace ChaosMod.Activator
                 //case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
                 case Effects.RandomEffectEffect: return new RandomEffectEffect();
                 case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
+                case Effects.NoStaminaEffect: return new NoStaminaEffect();
             }
         }
     }

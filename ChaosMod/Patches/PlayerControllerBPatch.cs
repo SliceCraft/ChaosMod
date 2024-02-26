@@ -8,14 +8,22 @@ namespace ChaosMod.Patches
     internal class PlayerControllerBPatch
     {
         private static bool infinitSprintEnabled = false;
+        private static bool noStaminaEnabled = false;
         private static bool oneHitExplode = false;
 
         [HarmonyPatch("Update")]
         [HarmonyPostfix]
         static void infiniteSprintPatch(ref float ___sprintMeter)
         {
-            if (infinitSprintEnabled) {
-                ___sprintMeter = 1f;
+            if (!(infinitSprintEnabled && noStaminaEnabled)) {
+                if(infinitSprintEnabled)
+                {
+                    ___sprintMeter = 1f;
+                }
+                else if(noStaminaEnabled)
+                {
+                    ___sprintMeter = 0f;
+                }
             }
         }
 
@@ -38,6 +46,11 @@ namespace ChaosMod.Patches
         public static void setInfiniteSprint(bool set)
         {
             infinitSprintEnabled = set;
+        }
+
+        public static void SetNoStamina(bool set)
+        {
+            noStaminaEnabled = set;
         }
 
         public static void setOneHitExplode(bool set)
