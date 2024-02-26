@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ChaosMod.Effects
 {
-    internal class TeleportToShipEffect : Effect
+    internal class EnemiesVoteToLeaveEffect : Effect
     {
         public override string GetEffectName()
         {
-            return "Teleport to Ship";
+            return "Enemies vote to leave";
         }
 
         public override bool IsTimedEffect()
@@ -21,8 +21,12 @@ namespace ChaosMod.Effects
 
         public override void StartEffect()
         {
-            GameNetworkManager.Instance.localPlayerController.isInsideFactory = false;
-            GameNetworkManager.Instance.localPlayerController.TeleportPlayer(StartOfRound.Instance.playerSpawnPositions[0].position);
+            TimeOfDay.Instance.VoteShipToLeaveEarly();
+        }
+
+        public override bool IsAllowedToRun()
+        {
+            return TimeOfDay.Instance.currentDayTime >= 660;
         }
     }
 }

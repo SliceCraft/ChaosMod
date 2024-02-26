@@ -27,7 +27,8 @@ namespace ChaosMod.Activator
             //RandomOutfitEffect
             RandomEffectEffect,
             TeleportToShipEffect,
-            NoStaminaEffect
+            NoStaminaEffect,
+            EnemiesVoteToLeaveEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -57,6 +58,7 @@ namespace ChaosMod.Activator
                 case Effects.RandomEffectEffect: return new RandomEffectEffect();
                 case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
                 case Effects.NoStaminaEffect: return new NoStaminaEffect();
+                case Effects.EnemiesVoteToLeaveEffect: return new EnemiesVoteToLeaveEffect();
             }
         }
     }
