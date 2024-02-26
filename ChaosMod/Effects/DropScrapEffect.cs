@@ -28,6 +28,7 @@ namespace ChaosMod.Effects
                 } while (StartOfRound.Instance.allItemsList.itemsList[itemIndex].isScrap == false);
                 GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(StartOfRound.Instance.allItemsList.itemsList[itemIndex].spawnPrefab, GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, Quaternion.identity, StartOfRound.Instance.propsContainer);
                 gameObject.GetComponent<GrabbableObject>().fallTime = 0f;
+                gameObject.GetComponent<GrabbableObject>().scrapValue = 50;
                 gameObject.GetComponent<NetworkObject>().Spawn(false);
             }
         }

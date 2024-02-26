@@ -32,7 +32,7 @@ namespace ChaosMod.Patches
         [HarmonyPostfix]
         static void DamagePlayerPatch()
         {
-            if(oneHitExplode) Landmine.SpawnExplosion(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position);
+            if(oneHitExplode) Landmine.SpawnExplosion(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, true, 100, 100);
         }
 
         public static void setInfiniteSprint(bool set)

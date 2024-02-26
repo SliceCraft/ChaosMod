@@ -22,7 +22,7 @@ namespace ChaosMod.Activator
             WarpSpeed,
             DisableControls,
             DropHelpfulItemEffect,
-            DropScrapEffect,
+            //DropScrapEffect,
             //SpinningEnemiesEffect
             //RandomOutfitEffect
         }
@@ -48,7 +48,7 @@ namespace ChaosMod.Activator
                 case Effects.WarpSpeed: return new WarpSpeedEffect();
                 case Effects.DisableControls: return new DisableControlsEffect();
                 case Effects.DropHelpfulItemEffect: return new DropHelpfulItemEffect();
-                case Effects.DropScrapEffect: return new DropScrapEffect();
+                //case Effects.DropScrapEffect: return new DropScrapEffect();
                 //case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
                 //case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
             }
