@@ -25,7 +25,8 @@ namespace ChaosMod.Activator
             DropScrapEffect,
             //SpinningEnemiesEffect
             //RandomOutfitEffect
-            RandomEffectEffect
+            RandomEffectEffect,
+            TeleportToShipEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -53,6 +54,7 @@ namespace ChaosMod.Activator
                 //case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
                 //case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
                 case Effects.RandomEffectEffect: return new RandomEffectEffect();
+                case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
             }
         }
     }
