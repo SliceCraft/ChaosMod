@@ -26,9 +26,20 @@ namespace ChaosMod.Utils
             }
         }
 
-        // The outside code is still pretty broken
         private static void SpawnEnemyOutside(Vector3 enemyPos, int enemyNumber, int enemySpawns = 1)
         {
+            // There is no proper handling yet for outside spawning, the game will lag a lot which is a problem
+            // Since the SpawnEnemyOustide function is meant for outside spawning eventually it'll now be temporarily used differently
+            // When the player is outside (aka when this function is called) spawn the enemy inside of the factory at a random location
+            // If/when eventually there is proper code for spawning outside this can easily be modified to have correct behavior
+
+            System.Random rnd = new System.Random();
+            int aiLocIndex = rnd.Next(RoundManager.Instance.insideAINodes.Length);
+            Vector3 aiLoc = RoundManager.Instance.insideAINodes[aiLocIndex].transform.position;
+            SpawnEnemyInside(aiLoc, enemyNumber, enemySpawns);
+            return;
+
+            // TODO: Look into a better way of spawning outside
             for (int i = 0; i < enemySpawns; i++)
             {
                 try
