@@ -29,17 +29,25 @@ namespace ChaosMod.Activator
         {
 
         }
+
         public virtual void StopEffect()
         {
 
         }
+
         public virtual void UpdateEffect()
         {
 
         }
+
         public virtual bool IsAllowedToRun()
         {
             return true;
+        }
+
+        public virtual bool HideEffectTimer()
+        {
+            return false;
         }
 
         public abstract string GetEffectName();

@@ -200,10 +200,11 @@ namespace ChaosMod.Activator
             string text = "";
             foreach (Effect effect in activeEffects)
             {
+                if (effect.HideEffectTimer()) continue;
                 text += "(" + (effect.GetEffectStartTime() + effect.GetEffectLength() - DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()) / 1000 + " sec) " + effect.GetEffectName() + "\n";
             }
             Effect newestEffect = effectHistory[effectHistory.Count - 1];
-            if (!newestEffect.IsTimedEffect())
+            if(!newestEffect.IsTimedEffect() || newestEffect.HideEffectTimer())
             {
                 text += newestEffect.GetEffectName() + "\n";
             }
