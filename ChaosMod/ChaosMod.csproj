@@ -98,6 +98,7 @@
     <Compile Include="Effects\SpawnEnemyEffect.cs" />
     <Compile Include="Effects\AttractivePlayerEffect.cs" />
     <Compile Include="Effects\SpinningEnemiesEffect.cs" />
+    <Compile Include="Effects\TeleportToHeavenEffect.cs" />
     <Compile Include="Effects\TeleportToShipEffect.cs" />
     <Compile Include="Effects\UnlockUnlockableEffect.cs" />
     <Compile Include="Effects\WarpSpeedEffect.cs" />

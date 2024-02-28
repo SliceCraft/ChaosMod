@@ -28,11 +28,13 @@ namespace ChaosMod.Activator
             RandomEffectEffect,
             TeleportToShipEffect,
             NoStaminaEffect,
-            EnemiesVoteToLeaveEffect
+            EnemiesVoteToLeaveEffect,
+            TeleportToHeavenEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
         {
+            return new TeleportToHeavenEffect();
             switch (effect)
             {
                 default: return null;
@@ -59,6 +61,7 @@ namespace ChaosMod.Activator
                 case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
                 case Effects.NoStaminaEffect: return new NoStaminaEffect();
                 case Effects.EnemiesVoteToLeaveEffect: return new EnemiesVoteToLeaveEffect();
+                case Effects.TeleportToHeavenEffect: return new TeleportToHeavenEffect();
             }
         }
     }

@@ -10,6 +10,7 @@ namespace ChaosMod.Patches
         private static bool infinitSprintEnabled = false;
         private static bool noStaminaEnabled = false;
         private static bool oneHitExplode = false;
+        private static bool singleUseFallImmunity = false;
 
         [HarmonyPatch("Update")]
         [HarmonyPostfix]
@@ -43,6 +44,17 @@ namespace ChaosMod.Patches
             if(oneHitExplode) Landmine.SpawnExplosion(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, true, 100, 100);
         }
 
+        [HarmonyPatch("PlayerHitGroundEffects")]
+        [HarmonyPrefix]
+        static void PlayerHitGroundEffectsPatch()
+        {
+            if (singleUseFallImmunity)
+            {
+                GameNetworkManager.Instance.localPlayerController.ResetFallGravity();
+                singleUseFallImmunity = false;
+            }
+        }
+
         public static void setInfiniteSprint(bool set)
         {
             infinitSprintEnabled = set;
@@ -56,6 +68,11 @@ namespace ChaosMod.Patches
         public static void setOneHitExplode(bool set)
         {
             oneHitExplode = set;
+        }
+
+        public static void SetSingleUseFallImmunity(bool set)
+        {
+            singleUseFallImmunity = set;
         }
     }
 }
