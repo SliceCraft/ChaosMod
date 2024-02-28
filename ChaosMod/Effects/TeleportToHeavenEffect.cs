@@ -23,6 +23,13 @@ namespace ChaosMod.Effects
 
         public override void StartEffect()
         {
+            if(GameNetworkManager.Instance.localPlayerController.isInsideFactory)
+            {
+                GameNetworkManager.Instance.localPlayerController.isInsideFactory = false;
+                GameNetworkManager.Instance.localPlayerController.TeleportPlayer(new Vector3(0, 700, 0));
+                PlayerControllerBPatch.SetSingleUseFallImmunity(true);
+                return;
+            }
             Vector3 currentpos = GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position;
             GameNetworkManager.Instance.localPlayerController.TeleportPlayer(new Vector3(currentpos.x, currentpos.y + 700, currentpos.z));
             PlayerControllerBPatch.SetSingleUseFallImmunity(true);
