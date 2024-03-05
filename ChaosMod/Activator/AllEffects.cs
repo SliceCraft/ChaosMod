@@ -36,7 +36,6 @@ namespace ChaosMod.Activator
 
         public static Effect InstantiateEffect(Effects effect)
         {
-            return new SuperJumpEffect();
             switch (effect)
             {
                 default: return null;

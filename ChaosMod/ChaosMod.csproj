@@ -90,6 +90,7 @@
     <Compile Include="Effects\FasterEffectsEffect.cs" />
     <Compile Include="Effects\HealEffect.cs" />
     <Compile Include="Effects\InfiniteSprintEffect.cs" />
+    <Compile Include="Effects\InvinicibilityEffect.cs" />
     <Compile Include="Effects\LockAllDoorsEffect.cs" />
     <Compile Include="Effects\NoStaminaEffect.cs" />
     <Compile Include="Effects\OneHitExplosionsEffect.cs" />

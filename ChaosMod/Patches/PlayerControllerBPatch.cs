@@ -11,6 +11,7 @@ namespace ChaosMod.Patches
         private static bool noStaminaEnabled = false;
         private static bool oneHitExplode = false;
         private static bool singleUseFallImmunity = false;
+        private static bool isInvincible = false;
 
         [HarmonyPatch("Update")]
         [HarmonyPostfix]
@@ -55,6 +56,21 @@ namespace ChaosMod.Patches
             }
         }
 
+        [HarmonyPatch(nameof(PlayerControllerB.AllowPlayerDeath))]
+        [HarmonyPrefix]
+        static bool AllowPlayerDeathPatch(ref bool __result)
+        {
+            ChaosMod.getInstance().logsource.LogInfo("Allow player death patch");
+            if (isInvincible)
+            {
+                ChaosMod.getInstance().logsource.LogInfo("Is invincible and should return false");
+                __result = false;
+                return false;
+            }
+            ChaosMod.getInstance().logsource.LogInfo("Is not invincible, oh no");
+            return true;
+        }
+
         public static void setInfiniteSprint(bool set)
         {
             infinitSprintEnabled = set;
@@ -73,6 +89,11 @@ namespace ChaosMod.Patches
         public static void SetSingleUseFallImmunity(bool set)
         {
             singleUseFallImmunity = set;
+        }
+
+        public static void SetInvincible(bool set)
+        {
+            isInvincible = set;
         }
     }
 }
