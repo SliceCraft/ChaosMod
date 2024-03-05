@@ -30,7 +30,8 @@ namespace ChaosMod.Activator
             NoStaminaEffect,
             EnemiesVoteToLeaveEffect,
             TeleportToHeavenEffect,
-            FakeTeleportEffect
+            FakeTeleportEffect,
+            UTurnEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -63,6 +64,7 @@ namespace ChaosMod.Activator
                 case Effects.EnemiesVoteToLeaveEffect: return new EnemiesVoteToLeaveEffect();
                 case Effects.TeleportToHeavenEffect: return new TeleportToHeavenEffect();
                 case Effects.FakeTeleportEffect: return new FakeTeleportEffect();
+                case Effects.UTurnEffect: return new UTurnEffect();
             }
         }
     }

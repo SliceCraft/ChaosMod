@@ -102,6 +102,7 @@
     <Compile Include="Effects\TeleportToHeavenEffect.cs" />
     <Compile Include="Effects\TeleportToShipEffect.cs" />
     <Compile Include="Effects\UnlockUnlockableEffect.cs" />
+    <Compile Include="Effects\UTurnEffect.cs" />
     <Compile Include="Effects\WarpSpeedEffect.cs" />
     <Compile Include="Effects\YIPPEEEEEffect.cs" />
     <Compile Include="Patches\MenuManagerPatch.cs" />
