@@ -65,6 +65,7 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -99,6 +100,7 @@
     <Compile Include="Effects\SpawnEnemyEffect.cs" />
     <Compile Include="Effects\AttractivePlayerEffect.cs" />
     <Compile Include="Effects\SpinningEnemiesEffect.cs" />
+    <Compile Include="Effects\SuperJumpEffect.cs" />
     <Compile Include="Effects\TeleportToHeavenEffect.cs" />
     <Compile Include="Effects\TeleportToShipEffect.cs" />
     <Compile Include="Effects\UnlockUnlockableEffect.cs" />
