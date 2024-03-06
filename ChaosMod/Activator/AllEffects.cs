@@ -36,6 +36,7 @@ namespace ChaosMod.Activator
 
         public static Effect InstantiateEffect(Effects effect)
         {
+            return new ExtraDayEffect();
             switch (effect)
             {
                 default: return null;

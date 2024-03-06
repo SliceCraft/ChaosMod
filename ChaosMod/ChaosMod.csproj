@@ -86,6 +86,7 @@
     <Compile Include="Effects\DropHelpfulItemEffect.cs" />
     <Compile Include="Effects\DropScrapEffect.cs" />
     <Compile Include="Effects\EnemiesVoteToLeaveEffect.cs" />
+    <Compile Include="Effects\ExtraDayEffect.cs" />
     <Compile Include="Effects\FakeTeleportEffect.cs" />
     <Compile Include="Effects\FasterEffectsEffect.cs" />
     <Compile Include="Effects\HealEffect.cs" />
