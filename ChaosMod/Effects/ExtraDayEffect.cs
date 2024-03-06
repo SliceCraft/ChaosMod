@@ -26,7 +26,7 @@ namespace ChaosMod.Effects
 
         public override void StartEffect()
         {
-            TimeOfDay.Instance.timeUntilDeadline += TimeOfDay.Instance.globalTimeAtEndOfDay;
+            TimeOfDay.Instance.timeUntilDeadline += TimeOfDay.Instance.totalTime;
             HUDManager.Instance.DisplayDaysLeft((int)Mathf.Floor(TimeOfDay.Instance.timeUntilDeadline / TimeOfDay.Instance.totalTime));
             ReflectionUtil.CallFunction(TimeOfDay.Instance, "SyncGlobalTimeOnNetwork", null);
         }
