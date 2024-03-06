@@ -51,6 +51,10 @@ namespace ChaosMod.Activator
         }
 
         public abstract string GetEffectName();
-        public abstract bool IsTimedEffect();
+
+        public virtual bool IsTimedEffect()
+        {
+            return false;
+        }
     }
 }

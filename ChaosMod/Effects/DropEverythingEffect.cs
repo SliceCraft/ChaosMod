@@ -9,11 +9,6 @@ namespace ChaosMod.Effects
             return "Drop Everything";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             // This should maybe use DropAllHeldItemsAndSync

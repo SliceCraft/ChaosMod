@@ -19,11 +19,6 @@ namespace ChaosMod.Effects
             return "Extra Day";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             TimeOfDay.Instance.timeUntilDeadline += TimeOfDay.Instance.totalTime;

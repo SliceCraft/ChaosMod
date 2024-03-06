@@ -22,11 +22,6 @@ namespace ChaosMod.Effects
             return "Drop " + StartOfRound.Instance.allItemsList.itemsList[itemIndex].itemName;
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(StartOfRound.Instance.allItemsList.itemsList[itemIndex].spawnPrefab, GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, Quaternion.identity, StartOfRound.Instance.propsContainer);

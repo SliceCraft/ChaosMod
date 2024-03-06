@@ -18,11 +18,6 @@ namespace ChaosMod.Effects
             return "Spawn " + RoundManager.Instance.currentLevel.Enemies[enemyNumber].enemyType.name;
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             SpawnEnemyUtil.SpawnEnemy(TimerSystem.GetPositionTracker().GetOldPosition(ChaosMod.ConfigDelayBeforeSpawn.Value), enemyNumber, 1, GameNetworkManager.Instance.localPlayerController.isInsideFactory);

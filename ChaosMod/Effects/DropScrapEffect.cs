@@ -11,11 +11,6 @@ namespace ChaosMod.Effects
             return "Drop Scrap";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             for(int i = 0; i < 2; i++)

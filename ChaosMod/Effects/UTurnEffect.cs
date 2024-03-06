@@ -14,11 +14,6 @@ namespace ChaosMod.Effects
             return "U Turn";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             GameNetworkManager.Instance.localPlayerController.TeleportPlayer(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.transform.position, true, GameNetworkManager.Instance.localPlayerController.thisPlayerBody.transform.eulerAngles.y + 180);

@@ -14,11 +14,6 @@ namespace ChaosMod.Effects
             return "Teleport to Ship";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             GameNetworkManager.Instance.localPlayerController.isInsideFactory = false;

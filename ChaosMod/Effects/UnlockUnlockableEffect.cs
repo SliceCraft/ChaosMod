@@ -10,11 +10,6 @@ namespace ChaosMod.Effects
             return "Unlock Ship Upgrade";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             bool anynotunlocked = false;

@@ -10,11 +10,6 @@ namespace ChaosMod.Effects
             return "Damage Roulette";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             Random rnd = new Random();

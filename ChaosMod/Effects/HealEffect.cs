@@ -9,11 +9,6 @@ namespace ChaosMod.Effects
             return "Heal";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             GameNetworkManager.Instance.localPlayerController.health += 40;

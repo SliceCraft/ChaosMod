@@ -10,11 +10,6 @@ namespace ChaosMod.Effects
             return "Remove Holding Items";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             for(int i = 0; i < GameNetworkManager.Instance.localPlayerController.ItemSlots.Count(); i++)

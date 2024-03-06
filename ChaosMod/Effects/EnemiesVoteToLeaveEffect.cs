@@ -14,11 +14,6 @@ namespace ChaosMod.Effects
             return "Enemies vote to leave";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             TimeOfDay.Instance.VoteShipToLeaveEarly();

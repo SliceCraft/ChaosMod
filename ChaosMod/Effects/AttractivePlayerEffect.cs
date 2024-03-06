@@ -11,11 +11,6 @@ namespace ChaosMod.Effects
             return "Attractive Player";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             bool isInside = GameNetworkManager.Instance.localPlayerController.isInsideFactory;

@@ -10,11 +10,6 @@ namespace ChaosMod.Effects
             return "YIPPEEEE";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             int? yippeeeid = null;

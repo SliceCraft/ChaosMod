@@ -16,11 +16,6 @@ namespace ChaosMod.Effects
             return "Teleport To Heaven";
         }
 
-        public override bool IsTimedEffect()
-        {
-            return false;
-        }
-
         public override void StartEffect()
         {
             if(GameNetworkManager.Instance.localPlayerController.isInsideFactory)
