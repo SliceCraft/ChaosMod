@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace ChaosMod.Effects
 {
@@ -33,7 +34,7 @@ namespace ChaosMod.Effects
             {
                 if (!enemy.isEnemyDead)
                 {
-                    ReflectionUtil.CallFunction(enemy, "UpdateEnemyRotationServerRpc", (short)((short)enemy.serverRotation.y + 15));
+                    enemy.gameObject.transform.eulerAngles = new Vector3(enemy.gameObject.transform.eulerAngles.x, enemy.gameObject.transform.eulerAngles.y + 50, enemy.gameObject.transform.eulerAngles.z);
                 }
             }
         }

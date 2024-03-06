@@ -23,7 +23,7 @@ namespace ChaosMod.Activator
             DisableControls,
             DropHelpfulItemEffect,
             DropScrapEffect,
-            //SpinningEnemiesEffect
+            SpinningEnemiesEffect,
             //RandomOutfitEffect
             RandomEffectEffect,
             TeleportToShipEffect,
@@ -55,7 +55,7 @@ namespace ChaosMod.Activator
                 case Effects.DisableControls: return new DisableControlsEffect();
                 case Effects.DropHelpfulItemEffect: return new DropHelpfulItemEffect();
                 case Effects.DropScrapEffect: return new DropScrapEffect();
-                //case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
+                case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
                 //case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
                 case Effects.RandomEffectEffect: return new RandomEffectEffect();
                 case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
