@@ -6,7 +6,6 @@ namespace ChaosMod.Activator
     {
         public enum Effects
         {
-            //LockAllDoors,
             InfiniteSprint,
             SpawnEnemy,
             DamageRoulette,
@@ -38,7 +37,6 @@ namespace ChaosMod.Activator
             switch (effect)
             {
                 default: return null;
-                //case Effects.LockAllDoors: return new LockAllDoorsEffect(); // This effect is currently broken, it works kinda but not fully as expected
                 case Effects.InfiniteSprint: return new InfiniteSprintEffect();
                 case Effects.SpawnEnemy: return new SpawnEnemyEffect();
                 case Effects.DamageRoulette: return new DamageRouletteEffect();

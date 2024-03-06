@@ -92,7 +92,6 @@
     <Compile Include="Effects\InfiniteSprintEffect.cs" />
     <Compile Include="Effects\InvinicibilityEffect.cs" />
     <Compile Include="Effects\InvisibleEnemiesEffect.cs" />
-    <Compile Include="Effects\LockAllDoorsEffect.cs" />
     <Compile Include="Effects\NoStaminaEffect.cs" />
     <Compile Include="Effects\OneHitExplosionsEffect.cs" />
     <Compile Include="Effects\RandomEffectEffect.cs" />
