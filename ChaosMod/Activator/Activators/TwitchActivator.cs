@@ -27,6 +27,7 @@ namespace ChaosMod.Activator.Activators
                 ChaosMod.getInstance().twitchIRCClient = new Twitch.TwitchIRCClient();
                 ChaosMod.getInstance().twitchIRCClient.ConnectToTwitch();
             }
+            if (stopped) return;
             // When running chooseNewEffect() it'll invert highNumbers, it should start with the numbers 1 to 3 and then later on move to 5 to 6
             highNumbers = true;
             if (ChaosMod.ConfigTwitchOptionsShowcase.Value != "chatmessage" && twitchText == null)
