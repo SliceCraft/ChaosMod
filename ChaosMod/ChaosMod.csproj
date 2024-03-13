@@ -108,6 +108,7 @@
     <Compile Include="Effects\UTurnEffect.cs" />
     <Compile Include="Effects\WarpSpeedEffect.cs" />
     <Compile Include="Effects\YIPPEEEEEffect.cs" />
+    <Compile Include="Patches\GameNeworkManagerPatch.cs" />
     <Compile Include="Patches\MenuManagerPatch.cs" />
     <Compile Include="Patches\PlayerControllerBPatch.cs" />
     <Compile Include="Patches\RoundManagerPatch.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Twitch\TwitchIRCClient.cs" />
     <Compile Include="Utils\ReflectionUtil.cs" />
     <Compile Include="Utils\SpawnEnemyUtil.cs" />
+    <Compile Include="WebServer\HttpServer.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

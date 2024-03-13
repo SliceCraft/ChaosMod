@@ -15,14 +15,21 @@ namespace ChaosMod.Twitch
         const string URL = "irc.chat.twitch.tv";
         const int PORT = 6667;
 
-        string User = ChaosMod.ConfigTwitchUsername.Value;
-        string OAuth = ChaosMod.ConfigTwitchOAuthToken.Value;
-        string Channel = ChaosMod.ConfigTwitchUsername.Value;
+        string User = ChaosMod.getInstance().twitchOauthUsername;
+        string OAuth = ChaosMod.getInstance().twitchOauthToken;
+        string Channel = ChaosMod.getInstance().twitchOauthUsername;
 
         Timer task = null;
 
         public void ConnectToTwitch()
         {
+            if(ChaosMod.getInstance().twitchOauthToken == null || ChaosMod.getInstance().twitchOauthUsername == null)
+            {
+                ChaosMod.getInstance().twitchIRCClient = null;
+                HUDManager.Instance.DisplayTip("Twitch Error", "Chaos Mod has not been authenticated with Twitch. Open the webpage by pressing CTRL+I or go to http://localhost:8000", true);
+                TimerSystem.Disable();
+                return;
+            }
             Twitch = new TcpClient(URL, PORT);
             Reader = new StreamReader(Twitch.GetStream());
             Writer = new StreamWriter(Twitch.GetStream());
@@ -37,6 +44,7 @@ namespace ChaosMod.Twitch
 
         public void Update()
         {
+            if (Twitch == null) return;
             while (Twitch.Available > 0)
             {
                 string message = Reader.ReadLine();

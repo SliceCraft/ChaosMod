@@ -5,6 +5,7 @@ using System;
 using Unity.Netcode;
 using UnityEngine;
 using BepInEx.Configuration;
+using System.Diagnostics;
 
 namespace ChaosMod.Patches
 {
@@ -13,6 +14,7 @@ namespace ChaosMod.Patches
     {
         private static KeyboardShortcut shortcut1 = new KeyboardShortcut(KeyCode.P, new KeyCode[] { KeyCode.LeftControl });
         private static KeyboardShortcut shortcut2 = new KeyboardShortcut(KeyCode.O, new KeyCode[] { KeyCode.LeftControl });
+        private static KeyboardShortcut shortcut3 = new KeyboardShortcut(KeyCode.I, new KeyCode[] { KeyCode.LeftControl });
 
         [HarmonyPatch("Update")]
         [HarmonyPrefix]
@@ -25,14 +27,22 @@ namespace ChaosMod.Patches
             if (shortcut1.IsDown() && isNotGoingToCompany && isPlayerNotDead && isNotInShip && GameNetworkManager.Instance.isHostingGame)
             {
                 TimerSystem.Disable();
-                TimerSystem.Enable();
                 HUDManager.Instance.DisplayTip("Chaos Mod", "The mod has been reset");
+                TimerSystem.Enable();
             }
 
             if (shortcut2.IsDown())
             {
                 TimerSystem.Disable();
                 HUDManager.Instance.DisplayTip("Chaos Mod", "The mod has been turned off. Turn on with Ctrl + P");
+            }
+            if (shortcut3.IsDown() && ChaosMod.ConfigActivator.Value == "twitch")
+            {
+                try
+                {
+                    Process.Start("http://localhost:8000");
+                }
+                catch { }
             }
 
             ChaosMod.getInstance().twitchIRCClient?.Update();

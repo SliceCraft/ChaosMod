@@ -313,5 +313,10 @@ namespace ChaosMod.Activator
         {
             halfEffectWaitTime = set;
         }
+
+        public static bool GetEnabled()
+        {
+            return enabled;
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ChaosMod.Activator.Activators
         // When running chooseNewEffect() it'll invert highNumbers, it should start with the numbers 1 to 3 and then later on move to 5 to 6
         public bool highNumbers = true;
         private static TextMeshProUGUI twitchText = null;
+        private bool stopped = false;
 
         public string getName()
         {
@@ -38,6 +39,7 @@ namespace ChaosMod.Activator.Activators
         public void Stop()
         {
             if(twitchText != null) twitchText.text = "";
+            stopped = true;
         }
 
         public Effect ChooseEffect()
