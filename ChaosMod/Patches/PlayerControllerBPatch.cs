@@ -1,6 +1,11 @@
 ﻿using ChaosMod.Activator;
 using GameNetcodeStuff;
 using HarmonyLib;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Policy;
+using Unity.Netcode;
+using UnityEngine;
 
 namespace ChaosMod.Patches
 {
@@ -12,6 +17,8 @@ namespace ChaosMod.Patches
         private static bool oneHitExplode = false;
         private static bool singleUseFallImmunity = false;
         private static bool isInvincible = false;
+
+        private static Landmine explodeQueued = null;
 
         [HarmonyPatch("Update")]
         [HarmonyPostfix]
@@ -26,6 +33,11 @@ namespace ChaosMod.Patches
                 {
                     ___sprintMeter = 0f;
                 }
+            }
+            if(explodeQueued != null)
+            {
+                ChaosMod.getInstance().logsource.LogInfo("EXPLODE MOTHERFUCKER");
+                explodeQueued.ExplodeMineServerRpc();
             }
         }
 
@@ -42,7 +54,24 @@ namespace ChaosMod.Patches
         [HarmonyPostfix]
         static void DamagePlayerPatch()
         {
-            if(oneHitExplode) Landmine.SpawnExplosion(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.position, true, 100, 100);
+            if(oneHitExplode)
+            {
+                SpawnableMapObject[] spawnableObjects = StartOfRound.Instance.currentLevel.spawnableMapObjects;
+                if (spawnableObjects.Length > 0)
+                {
+                    foreach (SpawnableMapObject spawnableObject in spawnableObjects)
+                    {
+                        if (spawnableObject.prefabToSpawn.GetComponentInChildren<Landmine>() != null)
+                        {
+                            GameObject gameObject = Object.Instantiate(spawnableObject.prefabToSpawn, GameNetworkManager.Instance.localPlayerController.thisPlayerBody.transform.position, Quaternion.Euler(Vector3.zero));
+                            gameObject.SetActive(true);
+                            gameObject.GetComponent<NetworkObject>().Spawn(true);
+                            gameObject.GetComponentInChildren<Landmine>().ExplodeMineServerRpc();
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         [HarmonyPatch("PlayerHitGroundEffects")]

@@ -12,7 +12,7 @@ namespace ChaosMod.Activator
             Heal,
             RandomTeleport,
             YIPPEEEEE,
-            //RemoveHoldingItems,
+            RemoveHoldingItems,
             DropEverything,
             UnlockUnlockable,
             FasterEffects,
@@ -23,18 +23,20 @@ namespace ChaosMod.Activator
             DropHelpfulItemEffect,
             DropScrapEffect,
             SpinningEnemiesEffect,
-            //RandomOutfitEffect
+            RandomOutfitEffect,
             RandomEffectEffect,
             TeleportToShipEffect,
             NoStaminaEffect,
             EnemiesVoteToLeaveEffect,
             TeleportToHeavenEffect,
             UTurnEffect,
-            InvisibleEnemiesEffect
+            InvisibleEnemiesEffect,
+            ExtraDayEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
         {
+            return new OneHitExplosionsEffect();
             switch (effect)
             {
                 default: return null;
@@ -44,7 +46,7 @@ namespace ChaosMod.Activator
                 case Effects.Heal: return new HealEffect();
                 case Effects.RandomTeleport: return new RandomTeleportEffect();
                 case Effects.YIPPEEEEE: return new YIPPEEEEEffect();
-                //case Effects.RemoveHoldingItems: return new RemoveHolidingItemsEffect(); // This effect sometimes causes some weird issues, needs more investigation
+                case Effects.RemoveHoldingItems: return new RemoveHolidingItemsEffect();
                 case Effects.DropEverything: return new DropEverythingEffect();
                 case Effects.UnlockUnlockable: return new UnlockUnlockableEffect();
                 case Effects.FasterEffects: return new FasterEffectsEffect();
@@ -55,7 +57,7 @@ namespace ChaosMod.Activator
                 case Effects.DropHelpfulItemEffect: return new DropHelpfulItemEffect();
                 case Effects.DropScrapEffect: return new DropScrapEffect();
                 case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
-                //case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
+                case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
                 case Effects.RandomEffectEffect: return new RandomEffectEffect();
                 case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
                 case Effects.NoStaminaEffect: return new NoStaminaEffect();
@@ -63,6 +65,7 @@ namespace ChaosMod.Activator
                 case Effects.TeleportToHeavenEffect: return new TeleportToHeavenEffect();
                 case Effects.UTurnEffect: return new UTurnEffect();
                 case Effects.InvisibleEnemiesEffect: return new InvisibleEnemiesEffect();
+                case Effects.ExtraDayEffect: return new ExtraDayEffect();
             }
         }
     }

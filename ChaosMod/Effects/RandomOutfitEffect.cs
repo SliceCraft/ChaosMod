@@ -18,6 +18,7 @@ namespace ChaosMod.Effects
             System.Random rand = new System.Random();
             int index = rand.Next(suits.Count);
             suits[index].SwitchSuitToThis(GameNetworkManager.Instance.localPlayerController);
+            UnlockableSuit.SwitchSuitForPlayer(GameNetworkManager.Instance.localPlayerController, suits[index].syncedSuitID.Value);
         }
     }
 }

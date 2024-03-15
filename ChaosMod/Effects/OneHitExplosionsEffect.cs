@@ -1,5 +1,7 @@
 ﻿using ChaosMod.Activator;
 using ChaosMod.Patches;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ChaosMod.Effects
 {
@@ -28,6 +30,12 @@ namespace ChaosMod.Effects
         public override void StopEffect()
         {
             PlayerControllerBPatch.setOneHitExplode(false);
+        }
+
+        public override bool IsAllowedToRun()
+        {
+            List<Landmine> landmines = UnityEngine.Object.FindObjectsOfType<Landmine>().ToList();
+            return landmines.Count > 0;
         }
     }
 }

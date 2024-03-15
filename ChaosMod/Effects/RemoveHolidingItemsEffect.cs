@@ -14,10 +14,11 @@ namespace ChaosMod.Effects
         {
             for(int i = 0; i < GameNetworkManager.Instance.localPlayerController.ItemSlots.Count(); i++)
             {
-                if (GameNetworkManager.Instance.localPlayerController.currentItemSlot == i || GameNetworkManager.Instance.localPlayerController.ItemSlots[i] == null) continue;
+                if (GameNetworkManager.Instance.localPlayerController.ItemSlots[i] == null) continue;
                 GameNetworkManager.Instance.localPlayerController.DestroyItemInSlotAndSync(i);
             }
             GameNetworkManager.Instance.localPlayerController.DropAllHeldItemsAndSync();
+            GameNetworkManager.Instance.localPlayerController.carryWeight = 1f;
         }
     }
 }
