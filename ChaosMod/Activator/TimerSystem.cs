@@ -135,8 +135,11 @@ namespace ChaosMod.Activator
             lastTimerRun = 0;
             activeEffects = new List<Effect>();
             effectHistory = new List<Effect>();
-            PlayerControllerBPatch.setOneHitExplode(false);
             PlayerControllerBPatch.setInfiniteSprint(false);
+            PlayerControllerBPatch.SetNoStamina(false);
+            PlayerControllerBPatch.setOneHitExplode(false);
+            PlayerControllerBPatch.SetSingleUseFallImmunity(false);
+            PlayerControllerBPatch.SetInvincible(false);
             halfEffectWaitTime = false;
             enabled = false;
         }
