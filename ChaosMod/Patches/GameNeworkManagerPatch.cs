@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using ChaosMod.Activator;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,6 +29,13 @@ namespace ChaosMod.Patches
                 }
                 return;
             }
+        }
+
+        [HarmonyPatch("Disconnect")]
+        [HarmonyPostfix]
+        static void DisconnectPatch()
+        {
+            TimerSystem.Disable();
         }
     }
 }
