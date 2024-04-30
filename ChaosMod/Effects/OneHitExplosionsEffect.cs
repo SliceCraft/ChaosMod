@@ -34,8 +34,7 @@ namespace ChaosMod.Effects
 
         public override bool IsAllowedToRun()
         {
-            List<Landmine> landmines = UnityEngine.Object.FindObjectsOfType<Landmine>().ToList();
-            return landmines.Count > 0;
+            return true;
         }
     }
 }

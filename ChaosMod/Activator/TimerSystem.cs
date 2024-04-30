@@ -145,6 +145,9 @@ namespace ChaosMod.Activator
         {
             if(ChaosMod.ConfigTwitchOptionsShowcase.Value == "newwindow")
             {
+                // I ssay that it's unstable but it actually should never work at all
+                // The window should appear but showing the text + a proper background is not working
+                // This might be properly finished later on but not for now
                 HUDManager.Instance.DisplayTip("Chaos Mod", "You are currently using the newwindow option. This feature is unstable and not properly tested, use with caution.", true);
                 GameObject cameraObject = new GameObject();
                 cameraObject.name = "ChaosModSecondDisplayCamera";

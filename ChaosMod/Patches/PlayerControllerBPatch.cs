@@ -36,7 +36,6 @@ namespace ChaosMod.Patches
             }
             if(explodeQueued != null)
             {
-                ChaosMod.getInstance().logsource.LogInfo("EXPLODE MOTHERFUCKER");
                 explodeQueued.ExplodeMineServerRpc();
             }
         }
@@ -67,6 +66,9 @@ namespace ChaosMod.Patches
                             gameObject.SetActive(true);
                             gameObject.GetComponent<NetworkObject>().Spawn(true);
                             gameObject.GetComponentInChildren<Landmine>().ExplodeMineServerRpc();
+                            // By using Detonate the mine explodes instantly on our client, yet it will take some extra time on other peoples clients
+                            // for some weird reason ExplodeMineServerRpc just doesn't do it instantly
+                            gameObject.GetComponentInChildren<Landmine>().Detonate();
                             break;
                         }
                     }
@@ -89,14 +91,11 @@ namespace ChaosMod.Patches
         [HarmonyPrefix]
         static bool AllowPlayerDeathPatch(ref bool __result)
         {
-            ChaosMod.getInstance().logsource.LogInfo("Allow player death patch");
             if (isInvincible)
             {
-                ChaosMod.getInstance().logsource.LogInfo("Is invincible and should return false");
                 __result = false;
                 return false;
             }
-            ChaosMod.getInstance().logsource.LogInfo("Is not invincible, oh no");
             return true;
         }
 

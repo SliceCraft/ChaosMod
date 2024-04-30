@@ -26,6 +26,7 @@ namespace ChaosMod.Effects
 
         public override void StopEffect()
         {
+            // TODO: Calculate new start time to make sure the effect time stays halved during the remainder of that cycle
             TimerSystem.SetHalfEffectTime(false);
         }
     }
