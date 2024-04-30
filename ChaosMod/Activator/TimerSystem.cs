@@ -146,43 +146,6 @@ namespace ChaosMod.Activator
 
         private static void AddTextElement()
         {
-            if(ChaosMod.ConfigTwitchOptionsShowcase.Value == "newwindow")
-            {
-                // I ssay that it's unstable but it actually should never work at all
-                // The window should appear but showing the text + a proper background is not working
-                // This might be properly finished later on but not for now
-                HUDManager.Instance.DisplayTip("Chaos Mod", "You are currently using the newwindow option. This feature is unstable and not properly tested, use with caution.", true);
-                GameObject cameraObject = new GameObject();
-                cameraObject.name = "ChaosModSecondDisplayCamera";
-                secondDisplayCamera = cameraObject.AddComponent<Camera>();
-                secondDisplayCamera.targetDisplay = 1;
-                
-                GameObject go = new GameObject();
-                go.name = "CanvasDD";
-                Canvas canvas = go.AddComponent<Canvas>();
-
-                GameObject panelgo = new GameObject();
-                panelgo.name = "CanvasDDPanel";
-                panelgo.transform.parent = go.transform;
-
-                GameObject textElement2 = new GameObject();
-                textElement2.transform.parent = go.transform;
-                textElement2.name = "CanvasDDText";
-                Vector3 scale2 = textElement2.transform.localScale;
-                scale2.x = 1F;
-                scale2.y = 1F;
-                scale2.z = 1F;
-                textElement2.transform.localScale = scale2;
-                TextMeshProUGUI effectText = textElement2.AddComponent<TextMeshProUGUI>();
-                effectText.text = "AAAAAAAAAAAA";
-                effectText.fontSize = 15;
-                effectText.lineSpacing = 30;
-
-                canvas.worldCamera = secondDisplayCamera;
-                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-                canvas.targetDisplay = 1;
-            }
-
             GameObject textElement = new GameObject();
             textElement.transform.parent = HUDManager.Instance.HUDContainer.transform;
             textElement.name = "ChaosModEffectHistory";
