@@ -296,6 +296,11 @@ namespace ChaosMod.Activator
             return lastTimerRun;
         }
 
+        public static void SetLastTimerRun(long newTimer)
+        {
+            lastTimerRun = newTimer;
+        }
+
         public static Activator GetActivator()
         {
             return activator;
