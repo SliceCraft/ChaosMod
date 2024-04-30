@@ -1,7 +1,9 @@
 ﻿using ChaosMod.Activator;
 using ChaosMod.Activator.Activators;
 using System.IO;
+using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
 namespace ChaosMod.Twitch
@@ -13,7 +15,7 @@ namespace ChaosMod.Twitch
         StreamWriter Writer;
 
         const string URL = "irc.chat.twitch.tv";
-        const int PORT = 6667;
+        const int PORT = 6697;
 
         string User = ChaosMod.getInstance().twitchOauthUsername;
         string OAuth = ChaosMod.getInstance().twitchOauthToken;
@@ -31,8 +33,10 @@ namespace ChaosMod.Twitch
                 return;
             }
             Twitch = new TcpClient(URL, PORT);
-            Reader = new StreamReader(Twitch.GetStream());
-            Writer = new StreamWriter(Twitch.GetStream());
+            SslStream sslStream = new SslStream(Twitch.GetStream(), false, ValidateServerCertificate, null);
+            sslStream.AuthenticateAsClient(URL);
+            Reader = new StreamReader(sslStream);
+            Writer = new StreamWriter(sslStream);
 
             Writer.WriteLine("PASS " + OAuth);
             Writer.WriteLine("NICK " + User);
@@ -89,6 +93,11 @@ namespace ChaosMod.Twitch
         public void Disconnect()
         {
             Twitch.Close();
+        }
+
+        private bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return sslPolicyErrors == SslPolicyErrors.None;
         }
     }
 }
