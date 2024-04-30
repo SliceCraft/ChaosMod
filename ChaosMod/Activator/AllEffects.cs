@@ -24,7 +24,6 @@ namespace ChaosMod.Activator
             DropScrapEffect,
             SpinningEnemiesEffect,
             RandomOutfitEffect,
-            RandomEffectEffect,
             TeleportToShipEffect,
             NoStaminaEffect,
             EnemiesVoteToLeaveEffect,
@@ -57,7 +56,6 @@ namespace ChaosMod.Activator
                 case Effects.DropScrapEffect: return new DropScrapEffect();
                 case Effects.SpinningEnemiesEffect: return new SpinningEnemiesEffect();
                 case Effects.RandomOutfitEffect: return new RandomOutfitEffect();
-                case Effects.RandomEffectEffect: return new RandomEffectEffect();
                 case Effects.TeleportToShipEffect: return new TeleportToShipEffect();
                 case Effects.NoStaminaEffect: return new NoStaminaEffect();
                 case Effects.EnemiesVoteToLeaveEffect: return new EnemiesVoteToLeaveEffect();

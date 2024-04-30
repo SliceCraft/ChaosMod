@@ -3,6 +3,8 @@ using System;
 
 namespace ChaosMod.Effects
 {
+    // This effect is temporarily disabled because it just breaks sometimes
+    // Need to investigate how to do this in a better way
     internal class RandomEffectEffect : Effect
     {
         private bool effectStarted = false;
