@@ -21,11 +21,7 @@ namespace ChaosMod.Patches
             {
                 if (ChaosMod.ConfigActivator.Value == "twitch")
                 {
-                    try
-                    {
-                        Process.Start("http://localhost:8000");
-                    }
-                    catch { }
+                    Application.OpenURL("http://localhost:8000");
                 }
                 return;
             }

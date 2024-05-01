@@ -38,11 +38,7 @@ namespace ChaosMod.Patches
             }
             if (shortcut3.IsDown() && ChaosMod.ConfigActivator.Value == "twitch")
             {
-                try
-                {
-                    Process.Start("http://localhost:8000");
-                }
-                catch { }
+                Application.OpenURL("http://localhost:8000");
             }
 
             ChaosMod.getInstance().twitchIRCClient?.Update();
