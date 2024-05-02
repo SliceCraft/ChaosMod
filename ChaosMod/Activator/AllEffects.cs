@@ -31,7 +31,8 @@ namespace ChaosMod.Activator
             UTurnEffect,
             InvisibleEnemiesEffect,
             ExtraDayEffect,
-            FollowingMinesEffect
+            FollowingMinesEffect,
+            FlipCameraEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -65,6 +66,7 @@ namespace ChaosMod.Activator
                 case Effects.InvisibleEnemiesEffect: return new InvisibleEnemiesEffect();
                 case Effects.ExtraDayEffect: return new ExtraDayEffect();
                 case Effects.FollowingMinesEffect: return new FollowingMinesEffect();
+                case Effects.FlipCameraEffect: return new FlipCameraEffect();
             }
         }
     }

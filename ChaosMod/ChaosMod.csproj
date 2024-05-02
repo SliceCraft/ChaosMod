@@ -76,6 +76,7 @@
     <Compile Include="Effects\EnemiesVoteToLeaveEffect.cs" />
     <Compile Include="Effects\ExtraDayEffect.cs" />
     <Compile Include="Effects\FasterEffectsEffect.cs" />
+    <Compile Include="Effects\FlipCameraEffect.cs" />
     <Compile Include="Effects\FollowingMinesEffect.cs" />
     <Compile Include="Effects\HealEffect.cs" />
     <Compile Include="Effects\InfiniteSprintEffect.cs" />
