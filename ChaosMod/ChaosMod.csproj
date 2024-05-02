@@ -76,6 +76,7 @@
     <Compile Include="Effects\EnemiesVoteToLeaveEffect.cs" />
     <Compile Include="Effects\ExtraDayEffect.cs" />
     <Compile Include="Effects\FasterEffectsEffect.cs" />
+    <Compile Include="Effects\FollowingMinesEffect.cs" />
     <Compile Include="Effects\HealEffect.cs" />
     <Compile Include="Effects\InfiniteSprintEffect.cs" />
     <Compile Include="Effects\InvinicibilityEffect.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Activator\AllEffects.cs" />
     <Compile Include="Activator\TimerSystem.cs" />
     <Compile Include="Twitch\TwitchIRCClient.cs" />
+    <Compile Include="Utils\PrefabUtil.cs" />
     <Compile Include="Utils\ReflectionUtil.cs" />
     <Compile Include="Utils\SpawnEnemyUtil.cs" />
     <Compile Include="WebServer\HttpServer.cs" />

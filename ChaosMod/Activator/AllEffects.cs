@@ -30,7 +30,8 @@ namespace ChaosMod.Activator
             TeleportToHeavenEffect,
             UTurnEffect,
             InvisibleEnemiesEffect,
-            ExtraDayEffect
+            ExtraDayEffect,
+            FollowingMinesEffect
         }
 
         public static Effect InstantiateEffect(Effects effect)
@@ -63,6 +64,7 @@ namespace ChaosMod.Activator
                 case Effects.UTurnEffect: return new UTurnEffect();
                 case Effects.InvisibleEnemiesEffect: return new InvisibleEnemiesEffect();
                 case Effects.ExtraDayEffect: return new ExtraDayEffect();
+                case Effects.FollowingMinesEffect: return new FollowingMinesEffect();
             }
         }
     }

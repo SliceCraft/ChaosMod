@@ -1,4 +1,5 @@
 ﻿using ChaosMod.Activator;
+using ChaosMod.Utils;
 using GameNetcodeStuff;
 using HarmonyLib;
 using System.Collections.Generic;
@@ -55,24 +56,11 @@ namespace ChaosMod.Patches
         {
             if(oneHitExplode)
             {
-                SpawnableMapObject[] spawnableObjects = StartOfRound.Instance.currentLevel.spawnableMapObjects;
-                if (spawnableObjects.Length > 0)
-                {
-                    foreach (SpawnableMapObject spawnableObject in spawnableObjects)
-                    {
-                        if (spawnableObject.prefabToSpawn.GetComponentInChildren<Landmine>() != null)
-                        {
-                            GameObject gameObject = Object.Instantiate(spawnableObject.prefabToSpawn, GameNetworkManager.Instance.localPlayerController.thisPlayerBody.transform.position, Quaternion.Euler(Vector3.zero));
-                            gameObject.SetActive(true);
-                            gameObject.GetComponent<NetworkObject>().Spawn(true);
-                            gameObject.GetComponentInChildren<Landmine>().ExplodeMineServerRpc();
-                            // By using Detonate the mine explodes instantly on our client, yet it will take some extra time on other peoples clients
-                            // for some weird reason ExplodeMineServerRpc just doesn't do it instantly
-                            gameObject.GetComponentInChildren<Landmine>().Detonate();
-                            break;
-                        }
-                    }
-                }
+                GameObject landmineObject = PrefabUtil.SpawnLandmine(GameNetworkManager.Instance.localPlayerController.thisPlayerBody.transform.position);
+                landmineObject?.GetComponentInChildren<Landmine>().ExplodeMineServerRpc();
+                // By using Detonate the mine explodes instantly on our client, yet it will take some extra time on other peoples clients
+                // for some weird reason ExplodeMineServerRpc just doesn't do it instantly
+                landmineObject?.GetComponentInChildren<Landmine>().Detonate();
             }
         }
 
